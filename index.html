@@ -1,0 +1,107 @@
+<!-- 1. index.html (HOME - pa ndryshime të mëdha, vetëm CTA të re) -->
+<!doctype html>
+<html lang="sq">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>SafeLine — Home</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="navbar">
+<div class="brand">
+<div class="logo">SL</div>
+<div>
+<div class="brand-title">SafeLine</div>
+<div class="brand-sub">Digital Safety for Girls — Kosovo</div>
+<button id="themeSwitcher" class="theme-btn">Change Theme</button>
+</div>
+</div>
+<nav class="nav-links">
+<a href="index.html">Home</a>
+<a href="learn-act.html">Learn & Act</a>
+<a href="report-help.html">Report & Help</a>
+<a href="support-stories.html">Support Stories</a>
+<button class="quick-exit" id="quickExit">Quick Exit</button>
+</nav>
+</header>
+
+<main class="container">
+<section class="hero">
+<div class="hero-left">
+<h1>SafeLine — Siguri Digjitale për Vajzat</h1>
+<p class="lead">Informim, mbështetje dhe udhëzime praktike për të vepruar në mënyrë të sigurt dhe anonime.</p>
+<div class="cta-row">
+<a class="cta" href="learn-act.html">Learn & Act</a>
+<a class="cta" href="report-help.html">Report & Help</a>
+<a class="cta outline" href="support-stories.html">Support Stories</a>
+<a class="cta outline" href="#partners">Partners</a>
+</div>
+<!-- Mini-grid pa ndryshim -->
+<div class="mini-grid">
+<a class="mini-card" href="learn-act.html">
+<div class="icon">💬</div><strong>Ngacmimi Online</strong><p>Si ta identifikosh & reagosh.</p></a>
+<a class="mini-card" href="learn-act.html#evidence">
+<div class="icon">🧾</div><strong>Mbledhja e Provave</strong><p>Ruaj screenshot & metadata.</p></a>
+<a class="mini-card" href="report-help.html">
+<div class="icon">⚠️</div><strong>Si të raportosh</strong><p>Udhëzime hap-pas-hapi.</p></a>
+</div>
+</div>
+<aside class="hero-right">
+<div class="slider" id="homeSlider">
+<div class="slides" id="slides">
+<div class="slide"><img src="h1.png.jpeg" alt="Vajza duke mbrojtur telefonin" style="width:100%;border-radius:12px;"></div>
+<div class="slide"><img src="h2.png.jpeg" alt="Timeline raportimi" style="width:100%;border-radius:12px;"></div>
+<div class="slide"><img src="h3.png.jpeg" alt="Mbështetje komunitare" style="width:100%;border-radius:12px;"></div>
+</div>
+<div class="slider-controls" id="dots"></div>
+</div>
+<div class="quick-quiz">
+<h4>Quiz i shpejtë</h4>
+<p>Sa e sigurt je online?</p>
+<a href="#quiz" class="small-btn">Take Quiz</a>
+</div>
+</aside>
+</section>
+
+<section id="quiz" class="section-light">
+<h2>Are you safe online? — Quiz i shpejtë</h2>
+<div class="quiz-card">
+<div id="quizQuestions">
+<div class="q">1) A përdor fjalëkalime të ndryshme për çdo llogari?
+<div><label><input type="radio" name="q1" value="1"> Po</label>
+<label><input type="radio" name="q1" value="0"> Jo</label></div></div>
+<div class="q">2) A ke aktivizuar verifikimin me dy hapa (2FA)?
+<div><label><input type="radio" name="q2" value="1"> Po</label>
+<label><input type="radio" name="q2" value="0"> Jo</label></div></div>
+<div class="q">3) A ndan fotot private me persona që nuk i njeh mirë?
+<div><label><input type="radio" name="q3" value="0"> Po</label>
+<label><input type="radio" name="q3" value="1"> Jo</label></div></div>
+</div>
+<div class="mt"><button id="checkQuiz" class="btn">Shiko Rezultatin</button></div>
+<div id="quizResult" class="muted mt"></div>
+</div>
+</section>
+
+<section id="partners" class="section-light">
+<h2>Partnerë & Rekomandime</h2>
+<div class="grid">
+<div class="card">
+<strong>Policia e Kosovës</strong><br>Trajnim për prova digjitale & raportim 24/7.
+</div>
+<div class="card">
+<strong>UN Women Kosovo</strong><br>Fushata #16Days kundër dhunës digjitale.
+</div>
+<div class="card">
+<strong>Kosova STEM Centre</strong><br>Module sigurie në programe për vajza.
+</div>
+</div>
+</section>
+</main>
+
+<footer class="site-footer">
+<div>© SafeLine — Demo për siguri digjitale (Kosovë). Përdorim edukativ.</div>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
