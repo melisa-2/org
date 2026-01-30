@@ -1,107 +1,429 @@
-<!-- 1. index.html (HOME - pa ndryshime të mëdha, vetëm CTA të re) -->
-<!doctype html>
-<html lang="sq">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>SafeLine — Home</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafeLine - Digital Safety Platform</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ========== General Styles ========== */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+        body {
+            background-color: #fffaf6;
+            color: #333;
+        }
+        a {
+            text-decoration: none;
+        }
+
+        /* ========== Navbar ========== */
+        .navbar {
+            position: sticky;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+            background-color: #fff0f5;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+            border-bottom-left-radius: 15px;
+            border-bottom-right-radius: 15px;
+        }
+
+        .navbar .logo {
+            font-weight: 700;
+            font-size: 28px;
+            color: #ff4d6d;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .nav-links li:first-child {
+            margin-right: 10px; /* zvogëlo hapësirën midis Home dhe Pages */
+        }
+        .nav-links li a {
+            color: #ff4d6d;
+            font-weight: 500;
+            font-size: 16px;
+            padding: 6px 10px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        .nav-links li a:hover {
+            background-color: #ffd6e0;
+            color: #ff1a3c;
+        }
+
+        /* Dropdown */
+        .dropdown {
+            position: relative;
+        }
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 35px;
+            left: 0;
+            background-color: #fff0f5;
+            border-radius: 12px;
+            padding: 10px 0;
+            min-width: 180px;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+            z-index: 1000;
+        }
+        .dropdown-menu li a {
+            display: block;
+            padding: 8px 20px;
+            color: #ff4d6d;
+            font-weight: 500;
+        }
+        .dropdown-menu li a:hover {
+            background-color: #ff9f80;
+            color: #fff;
+            border-radius: 8px;
+        }
+        .dropdown.active .dropdown-menu {
+            display: block;
+        }
+
+        /* Quick Exit Button */
+        #quickExit {
+            background-color: #ff9f80;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            color: #fff;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            margin-left: 20px;
+        }
+        #quickExit:hover {
+            background-color: #ff7f50;
+            transform: scale(1.05);
+        }
+
+        /* ========== Hero Slider ========== */
+        .hero-slider {
+            position: relative;
+            overflow: hidden;
+            height: 400px;
+            margin: 30px 0;
+        }
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+        .slide.active {
+            opacity: 1;
+        }
+        .slide h2 {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #fff;
+            background-color: rgba(255, 77, 109, 0.7);
+            padding: 10px 20px;
+            border-radius: 12px;
+        }
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255,159,128,0.8);
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 50%;
+            font-size: 20px;
+            color: #fff;
+        }
+        .prev { left: 20px; }
+        .next { right: 20px; }
+
+        /* ========== Interactive Boxes ========== */
+        .interactive-boxes {
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .interactive-boxes h2 {
+            font-size: 32px;
+            margin-bottom: 40px;
+            color: #ff4d6d;
+        }
+        .boxes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+            justify-items: center;
+        }
+        .box {
+            background-color: #fff0f5;
+            padding: 25px;
+            border-radius: 20px;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            cursor: pointer;
+            max-width: 300px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        .box:hover {
+            transform: scale(1.08);
+            background-color: #ffd6e0;
+        }
+        .box img {
+            width: 60px;
+            margin-bottom: 15px;
+        }
+        .box h3 {
+            color: #ff4d6d;
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+        .box p {
+            font-size: 15px;
+            color: #333;
+        }
+        .see-more-btn {
+            display: inline-block;
+            margin-top: 40px;
+            padding: 14px 30px;
+            background-color: #ff9f80;
+            color: #fff;
+            font-weight: 600;
+            border-radius: 12px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .see-more-btn:hover {
+            background-color: #ff7f50;
+            transform: scale(1.05);
+        }
+
+        /* ========== Responsive ========== */
+        @media screen and (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 15px 20px;
+            }
+            .nav-links {
+                flex-direction: column;
+                width: 100%;
+                gap: 10px;
+                margin-top: 10px;
+            }
+            .dropdown-menu {
+                position: relative;
+                top: 0;
+                left: 0;
+                width: 100%;
+                border-radius: 10px;
+                padding: 10px 0;
+            }
+            #quickExit {
+                width: 100%;
+                text-align: center;
+                padding: 10px 0;
+                margin-left: 0;
+            }
+            .boxes-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .see-more-btn {
+                width: 80%;
+                padding: 12px 0;
+            }
+        }
+    </style>
 </head>
 <body>
-<header class="navbar">
-<div class="brand">
-<div class="logo">SL</div>
-<div>
-<div class="brand-title">SafeLine</div>
-<div class="brand-sub">Digital Safety for Girls — Kosovo</div>
-<button id="themeSwitcher" class="theme-btn">Change Theme</button>
-</div>
-</div>
-<nav class="nav-links">
-<a href="index.html">Home</a>
-<a href="learn-act.html">Learn & Act</a>
-<a href="report-help.html">Report & Help</a>
-<a href="support-stories.html">Support Stories</a>
-<button class="quick-exit" id="quickExit">Quick Exit</button>
-</nav>
-</header>
 
-<main class="container">
-<section class="hero">
-<div class="hero-left">
-<h1>SafeLine — Siguri Digjitale për Vajzat</h1>
-<p class="lead">Informim, mbështetje dhe udhëzime praktike për të vepruar në mënyrë të sigurt dhe anonime.</p>
-<div class="cta-row">
-<a class="cta" href="learn-act.html">Learn & Act</a>
-<a class="cta" href="report-help.html">Report & Help</a>
-<a class="cta outline" href="support-stories.html">Support Stories</a>
-<a class="cta outline" href="#partners">Partners</a>
-</div>
-<!-- Mini-grid pa ndryshim -->
-<div class="mini-grid">
-<a class="mini-card" href="learn-act.html">
-<div class="icon">💬</div><strong>Ngacmimi Online</strong><p>Si ta identifikosh & reagosh.</p></a>
-<a class="mini-card" href="learn-act.html#evidence">
-<div class="icon">🧾</div><strong>Mbledhja e Provave</strong><p>Ruaj screenshot & metadata.</p></a>
-<a class="mini-card" href="report-help.html">
-<div class="icon">⚠️</div><strong>Si të raportosh</strong><p>Udhëzime hap-pas-hapi.</p></a>
-</div>
-</div>
-<aside class="hero-right">
-<div class="slider" id="homeSlider">
-<div class="slides" id="slides">
-<div class="slide"><img src="h1.png.jpeg" alt="Vajza duke mbrojtur telefonin" style="width:100%;border-radius:12px;"></div>
-<div class="slide"><img src="h2.png.jpeg" alt="Timeline raportimi" style="width:100%;border-radius:12px;"></div>
-<div class="slide"><img src="h3.png.jpeg" alt="Mbështetje komunitare" style="width:100%;border-radius:12px;"></div>
-</div>
-<div class="slider-controls" id="dots"></div>
-</div>
-<div class="quick-quiz">
-<h4>Quiz i shpejtë</h4>
-<p>Sa e sigurt je online?</p>
-<a href="#quiz" class="small-btn">Take Quiz</a>
-</div>
-</aside>
+    <!-- ========== Navbar ========== -->
+    <nav class="navbar">
+        <div class="logo">SafeLine</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropbtn">Pages ▼</a>
+                <ul class="dropdown-menu">
+                    <li><a href="details.html">Details</a></li>
+                    <li><a href="safeline.html">SafeLine</a></li>
+                    <li><a href="report.html">Report</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </li>
+            <li>
+                <button id="quickExit" title="Quick Exit!"> Exit</button>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- ========== Hero Slider ========== -->
+    <section class="hero-slider">
+        <div class="slide active" style="background-image: url('images/slide1.jpg');">
+            <h2>Stay Safe Online</h2>
+        </div>
+        <div class="slide" style="background-image: url('images/slide2.jpg');">
+            <h2>Learn How to Protect Yourself</h2>
+        </div>
+        <div class="slide" style="background-image: url('images/slide3.jpg');">
+            <h2>Digital Safety for Everyone</h2>
+        </div>
+        <button class="slider-btn prev">&#10094;</button>
+        <button class="slider-btn next">&#10095;</button>
+    </section>
+
+    <!-- ========== Interactive Boxes ========== -->
+    <section class="interactive-boxes">
+        <h2>Topics You Should Know</h2>
+        <div class="boxes-grid">
+            <div class="box">
+                <img src="icons/harassment.png" alt="Online Harassment Icon">
+                <h3>Online Harassment</h3>
+                <p>Learn how to identify and react safely to harassment online.</p>
+            </div>
+            <div class="box">
+                <img src="icons/stalking.png" alt="Digital Stalking Icon">
+                <h3>Digital Stalking</h3>
+                <p>Understand what digital stalking looks like and how to protect yourself.</p>
+            </div>
+            <div class="box">
+                <img src="icons/photos.png" alt="Photo Sharing Icon">
+                <h3>Sharing Photos Without Consent</h3>
+                <p>Steps to take if someone shares your photos without permission.</p>
+            </div>
+            <div class="box">
+                <img src="icons/safety.png" alt="Safety Icon">
+                <h3>Safety Measures</h3>
+                <p>Quick tips to react safely in dangerous online situations.</p>
+            </div>
+        </div>
+        <a href="details.html" class="see-more-btn">See More</a>
+    </section>
+    <!-- ========== SafeLine Section ========== -->
+<section class="safeline-section">
+    <h2>SafeLine - Practical Support</h2>
+    <div class="safeline-grid">
+        <div class="safeline-box">
+            <img src="icons/hacked.png" alt="Account Hacked">
+            <h3>Account Hacked?</h3>
+            <p>Learn step-by-step how to secure your account and protect your data.</p>
+        </div>
+        <div class="safeline-box">
+            <img src="icons/threat.png" alt="Online Threats">
+            <h3>Facing Threats Online?</h3>
+            <p>How to react safely and report threats without exposing yourself.</p>
+        </div>
+        <div class="safeline-box">
+            <img src="icons/photos.png" alt="Photo Privacy">
+            <h3>Photo Privacy</h3>
+            <p>Steps to take if your photos are shared without permission.</p>
+        </div>
+        <div class="safeline-box">
+            <img src="icons/police.png" alt="Contact Police">
+            <h3>Communicate with Police</h3>
+            <p>Practical tips on what to take with you and what rights you have.</p>
+        </div>
+    </div>
 </section>
 
-<section id="quiz" class="section-light">
-<h2>Are you safe online? — Quiz i shpejtë</h2>
-<div class="quiz-card">
-<div id="quizQuestions">
-<div class="q">1) A përdor fjalëkalime të ndryshme për çdo llogari?
-<div><label><input type="radio" name="q1" value="1"> Po</label>
-<label><input type="radio" name="q1" value="0"> Jo</label></div></div>
-<div class="q">2) A ke aktivizuar verifikimin me dy hapa (2FA)?
-<div><label><input type="radio" name="q2" value="1"> Po</label>
-<label><input type="radio" name="q2" value="0"> Jo</label></div></div>
-<div class="q">3) A ndan fotot private me persona që nuk i njeh mirë?
-<div><label><input type="radio" name="q3" value="0"> Po</label>
-<label><input type="radio" name="q3" value="1"> Jo</label></div></div>
-</div>
-<div class="mt"><button id="checkQuiz" class="btn">Shiko Rezultatin</button></div>
-<div id="quizResult" class="muted mt"></div>
-</div>
+<!-- ========== Report Without Fear Section ========== -->
+<section class="report-section">
+    <h2>Report Without Fear</h2>
+    <div class="report-timeline">
+        <div class="timeline-step">
+            <span class="step-number">1</span>
+            <p>Collect evidence (screenshots, messages, links)</p>
+        </div>
+        <div class="timeline-step">
+            <span class="step-number">2</span>
+            <p>Secure your profile and privacy settings</p>
+        </div>
+        <div class="timeline-step">
+            <span class="step-number">3</span>
+            <p>Report within platform (Instagram, TikTok, WhatsApp)</p>
+        </div>
+        <div class="timeline-step">
+            <span class="step-number">4</span>
+            <p>Report to police if necessary</p>
+        </div>
+        <div class="timeline-step">
+            <span class="step-number">5</span>
+            <p>Receive psychological and legal support</p>
+        </div>
+    </div>
 </section>
 
-<section id="partners" class="section-light">
-<h2>Partnerë & Rekomandime</h2>
-<div class="grid">
-<div class="card">
-<strong>Policia e Kosovës</strong><br>Trajnim për prova digjitale & raportim 24/7.
-</div>
-<div class="card">
-<strong>UN Women Kosovo</strong><br>Fushata #16Days kundër dhunës digjitale.
-</div>
-<div class="card">
-<strong>Kosova STEM Centre</strong><br>Module sigurie në programe për vajza.
-</div>
-</div>
-</section>
-</main>
 
-<footer class="site-footer">
-<div>© SafeLine — Demo për siguri digjitale (Kosovë). Përdorim edukativ.</div>
-</footer>
-<script src="script.js"></script>
+    <!-- ========== JavaScript ========== -->
+    <script>
+        // Quick Exit Button
+        const quickExit = document.getElementById('quickExit');
+        if (quickExit) {
+            quickExit.addEventListener('click', () => {
+                window.location.href = "https://www.google.com";
+            });
+        }
+
+        // Hero Slider
+        let slides = document.querySelectorAll('.slide');
+        let currentSlide = 0;
+        const totalSlides = slides.length;
+
+        const nextBtn = document.querySelector('.next');
+        const prevBtn = document.querySelector('.prev');
+
+        if (nextBtn) nextBtn.addEventListener('click', () => changeSlide(1));
+        if (prevBtn) prevBtn.addEventListener('click', () => changeSlide(-1));
+
+        function changeSlide(direction) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+            slides[currentSlide].classList.add('active');
+        }
+
+        // Auto Slide every 5 seconds
+        setInterval(() => {
+            changeSlide(1);
+        }, 5000);
+
+        // Dropdown Click Toggle
+        const dropdown = document.querySelector('.dropdown');
+        if (dropdown) {
+            dropdown.addEventListener('click', function(e) {
+                e.preventDefault();
+                this.classList.toggle('active');
+            });
+
+            window.addEventListener('click', function(e) {
+                if (!dropdown.contains(e.target)) {
+                    dropdown.classList.remove('active');
+                }
+            });
+        }
+
+    </script>
 </body>
 </html>
