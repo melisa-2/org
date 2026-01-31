@@ -1,61 +1,135 @@
-<!-- 4. support-stories.html (Resources + True Stories) -->
-<!doctype html>
-<html lang="sq">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title>Support Stories — SafeLine</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Details — SafeLine</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #fffaf6;
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            margin: 0;
+        }
+        a { text-decoration: none; color: #ff4d6d; }
+        a:hover { color: #ff1a3c; }
+
+        /* Navbar (i njëjtë si index) */
+        .navbar {
+            position: sticky;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+            background-color: #fff0f5;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            border-bottom-left-radius: 15px;
+            border-bottom-right-radius: 15px;
+            z-index: 1000;
+        }
+        .navbar .logo { font-weight: 700; font-size: 28px; color: #ff4d6d; }
+        .nav-links { list-style: none; display: flex; align-items: center; gap: 20px; }
+        .nav-links li { position: relative; }
+        .nav-links li a { padding: 6px 10px; border-radius: 8px; font-weight: 500; transition: all 0.3s ease; }
+        .nav-links li a:hover { background-color: #ffd6e0; color: #ff1a3c; }
+        #quickExit {
+            background-color: #ff9f80; border: none; padding: 5px 10px;
+            border-radius: 8px; cursor: pointer; color: #fff; font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        #quickExit:hover { background-color: #ff7f50; transform: scale(1.05); }
+
+        /* Sections */
+        main { padding: 50px 20px; max-width: 1200px; margin: 0 auto; }
+        h1, h2 { color: #ff4d6d; }
+        .lead { font-size: 18px; margin-bottom: 40px; }
+
+        /* Boxes for detailed info */
+        .details-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+        .detail-box {
+            background-color: #fff0f5; padding: 25px; border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05); transition: transform 0.3s ease, background-color 0.3s ease;
+            cursor: pointer;
+        }
+        .detail-box:hover { transform: scale(1.05); background-color: #ffd6e0; }
+        .detail-box img { width: 60px; margin-bottom: 15px; }
+        .detail-box h3 { margin-bottom: 10px; font-size: 20px; }
+        .detail-box p { font-size: 15px; }
+
+        /* Responsive */
+        @media screen and (max-width: 768px) {
+            .navbar { flex-direction: column; align-items: flex-start; padding: 15px 20px; }
+            .nav-links { flex-direction: column; width: 100%; gap: 10px; margin-top: 10px; }
+            .details-grid { grid-template-columns: 1fr; gap: 20px; }
+        }
+    </style>
 </head>
 <body>
-<header class="navbar">
-<div class="brand">
-<div class="logo">SL</div>
-<div>
-<div class="brand-title">SafeLine</div>
-<div class="brand-sub">Digital Safety for Girls — Kosovo</div>
-<button id="themeSwitcher" class="theme-btn">Change Theme</button>
-</div>
-</div>
-<nav class="nav-links">
-<a href="index.html">Home</a>
-<a href="learn-act.html">Learn & Act</a>
-<a href="report-help.html">Report & Help</a>
-<a href="support-stories.html">Support Stories</a>
-<button class="quick-exit" id="quickExit">Quick Exit</button>
-</nav>
-</header>
 
-<main class="container">
-<section class="hero">
-<h1>Support Stories — Burime & Rrëfime</h1>
-<p class="lead">Organizata, ligje dhe histori anonime për të treguar se nuk je vetëm.</p>
-</section>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">SafeLine</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="details.html">Details</a></li>
+            <li><a href="safeline.html">SafeLine</a></li>
+            <li><a href="report.html">Report</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><button id="quickExit">Exit</button></li>
+        </ul>
+    </nav>
 
-<section class="resources-section">
-<h2>Burime Ndihme</h2>
-<ul class="resource-list">
-<li><a href="https://kosovopolice.com">Policia e Kosovës — Raportim Kibernetik</a></li>
-<li><a href="https://unwomen.org/kosovo">UN Women Kosovo — Fushata Anti-Dhunë</a></li>
-<li><a href="https://kosovastem.org">Kosova STEM Centre — Programe Vajzash</a></li>
-<li>CERT Kosovo — Siguri Kibernetike</li>
-<!-- Shto ligje, video -->
-</ul>
-</section>
+    <main>
+        <section class="hero">
+            <h1>Details — Learn & Act</h1>
+            <p class="lead">Shembuj të anonimizuar të dhunës digjitale dhe udhëzime hap pas hapi për sigurinë tuaj.</p>
+        </section>
 
-<section class="stories-section">
-<h2>Rrëfime Anonime</h2>
-<div class="grid">
-<div class="card">
-<strong>Rrëfim 1</strong><br>Një vajzë pa shpërndarë foto; me prova raportoi në polici dhe u ndihmua nga Rrjeti i Grave.
-</div>
-<div class="card">
-<strong>Rrëfim 2</strong><br>Kërcënime online: Bllokoi, raportoi në Instagram & polici — situata u mbyll.
-</div>
-</div>
-</section>
-</main>
-<footer class="site-footer">
-<div>© SafeLine — Demo për siguri digjitale (Kosovë). Përdorim edukativ.</div>
-</footer>
-<script src="script.js"></script>
+        <section class="details-section">
+            <h2>Common Digital Threats</h2>
+            <div class="details-grid">
+                <div class="detail-box">
+                    <img src="icons/harassment.png" alt="Online Harassment">
+                    <h3>Online Harassment</h3>
+                    <p>Si ta identifikoni dhe si të reagoni në mënyrë të sigurt ndaj ngacmimeve online.</p>
+                </div>
+                <div class="detail-box">
+                    <img src="icons/stalking.png" alt="Digital Stalking">
+                    <h3>Digital Stalking</h3>
+                    <p>Si duket stalkimi digjital dhe mënyrat për t'u mbrojtur.</p>
+                </div>
+                <div class="detail-box">
+                    <img src="icons/photos.png" alt="Photo Sharing">
+                    <h3>Sharing Photos Without Consent</h3>
+                    <p>Çfarë të bëni nëse dikush shpërndan foto pa leje.</p>
+                </div>
+                <div class="detail-box">
+                    <img src="icons/safety.png" alt="Safety Measures">
+                    <h3>Safety Measures</h3>
+                    <p>Udhëzime të shpejta për të reaguar në situata të rrezikshme online.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer style="text-align:center; padding:20px; background:#fff0f5; color:#ff4d6d;">
+        © SafeLine — Demo për siguri digjitale (Kosovë)
+    </footer>
+
+    <script>
+        // Quick Exit
+        const quickExit = document.getElementById('quickExit');
+        if(quickExit){
+            quickExit.addEventListener('click', () => {
+                window.location.href = "https://www.google.com";
+            });
+        }
+    </script>
+
 </body>
 </html>

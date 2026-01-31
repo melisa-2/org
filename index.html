@@ -123,20 +123,24 @@
             height: 400px;
             margin: 30px 0;
         }
-        .slide {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-size: cover;
-            background-position: center;
-            opacity: 0;
-            transition: opacity 1s ease;
-        }
-        .slide.active {
-            opacity: 1;
-        }
+       .slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transform: scale(1.05); /* fillon pak e zmadhur */
+    transition: opacity 1s ease, transform 1s ease; /* fade + zoom */
+}
+
+.slide.active {
+    opacity: 1;
+    transform: scale(1); /* kthehet në madhësinë normale */
+}
+
         .slide h2 {
             position: absolute;
             bottom: 40px;
@@ -265,31 +269,26 @@
         <div class="logo">SafeLine</div>
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
-            <li class="dropdown">
-                <a href="#" class="dropbtn">Pages ▼</a>
-                <ul class="dropdown-menu">
-                    <li><a href="#details.html">Details</a></li>
-                    <li><a href="safeline.html">SafeLine</a></li>
-                    <li><a href="report.html">Report</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </li>
+            <li><a href="details.html">Detaje</a></li>
+            <li><a href="safeline.html">SafeLine</a></li>
+            <li><a href="report.html">Raporto</a></li>
+            <li><a href="contact.html">Kontakti</a></li>
             <li>
-                <button id="quickExit" title="Quick Exit!"> Exit</button>
+                <button id="quickExit" title="Dalje e Shpejtë!">Dalje</button>
             </li>
         </ul>
     </nav>
 
     <!-- ========== Hero Slider ========== -->
     <section class="hero-slider">
-        <div class="slide active" style="background-image: url('images/slide1.jpg');">
-            <h2>Stay Safe Online</h2>
+        <div class="slide active" style="background-image: url('img/h5.jpeg');">
+            <h2>Qëndro i Sigurt Online</h2>
         </div>
-        <div class="slide" style="background-image: url('images/slide2.jpg');">
-            <h2>Learn How to Protect Yourself</h2>
+        <div class="slide" style="background-image: url('img/h10.jpeg');">
+            <h2>Mëso Si të Mbrosh Veten</h2>
         </div>
-        <div class="slide" style="background-image: url('images/slide3.jpg');">
-            <h2>Digital Safety for Everyone</h2>
+        <div class="slide" style="background-image: url('img/h11.jpeg');">
+            <h2>Siguri Digjitale për të Gjithë</h2>
         </div>
         <button class="slider-btn prev">&#10094;</button>
         <button class="slider-btn next">&#10095;</button>
@@ -297,133 +296,174 @@
 
     <!-- ========== Interactive Boxes ========== -->
     <section class="interactive-boxes">
-        <h2>Topics You Should Know</h2>
+        <h2>Temat që Duhet të Dini</h2>
         <div class="boxes-grid">
             <div class="box">
-                <img src="icons/harassment.png" alt="Online Harassment Icon">
-                <h3>Online Harassment</h3>
-                <p>Learn how to identify and react safely to harassment online.</p>
+                <img src="img/h10.jpeg" alt="Ikona e Ngacmimit Online">
+                <h3>Ngacmimi Online</h3>
+                <p>Mëso si ta identifikosh dhe si të reagosh në mënyrë të sigurt ndaj ngacmimit online.</p>
             </div>
             <div class="box">
-                <img src="icons/stalking.png" alt="Digital Stalking Icon">
-                <h3>Digital Stalking</h3>
-                <p>Understand what digital stalking looks like and how to protect yourself.</p>
+                <img src="icons/stalking.png" alt="Ikona e Ngacmimit Digjital">
+                <h3>Ngacmimi Digjital</h3>
+                <p>Kupto se çfarë është ngacmimi digjital dhe si të mbrosh veten.</p>
             </div>
             <div class="box">
-                <img src="icons/photos.png" alt="Photo Sharing Icon">
-                <h3>Sharing Photos Without Consent</h3>
-                <p>Steps to take if someone shares your photos without permission.</p>
+                <img src="icons/photos.png" alt="Ikona e Ndashjes së Fotove">
+                <h3>Ndashja e Fotove pa Leje</h3>
+                <p>Hapat që duhet të marrësh nëse dikush ndan fotot tua pa leje.</p>
             </div>
             <div class="box">
-                <img src="icons/safety.png" alt="Safety Icon">
-                <h3>Safety Measures</h3>
-                <p>Quick tips to react safely in dangerous online situations.</p>
+                <img src="icons/safety.png" alt="Ikona e Sigurisë">
+                <h3>Masat e Sigurisë</h3>
+                <p>Këshilla të shpejta për të reaguar në mënyrë të sigurt në situata online të rrezikshme.</p>
             </div>
         </div>
-        <a href="details.html" class="see-more-btn">See More</a>
+        <a href="details.html" class="see-more-btn">Shiko më shumë</a>
     </section>
-    <!-- ========== SafeLine Section ========== -->
-<section class="safeline-section">
-    <h2>SafeLine - Practical Support</h2>
-    <div class="safeline-grid">
-        <div class="safeline-box">
-            <img src="icons/hacked.png" alt="Account Hacked">
-            <h3>Account Hacked?</h3>
-            <p>Learn step-by-step how to secure your account and protect your data.</p>
-        </div>
-        <div class="safeline-box">
-            <img src="icons/threat.png" alt="Online Threats">
-            <h3>Facing Threats Online?</h3>
-            <p>How to react safely and report threats without exposing yourself.</p>
-        </div>
-        <div class="safeline-box">
-            <img src="icons/photos.png" alt="Photo Privacy">
-            <h3>Photo Privacy</h3>
-            <p>Steps to take if your photos are shared without permission.</p>
-        </div>
-        <div class="safeline-box">
-            <img src="icons/police.png" alt="Contact Police">
-            <h3>Communicate with Police</h3>
-            <p>Practical tips on what to take with you and what rights you have.</p>
-        </div>
-    </div>
-</section>
 
-<!-- ========== Report Without Fear Section ========== -->
-<section class="report-section">
-    <h2>Report Without Fear</h2>
-    <div class="report-timeline">
-        <div class="timeline-step">
-            <span class="step-number">1</span>
-            <p>Collect evidence (screenshots, messages, links)</p>
+    <!-- ========== SafeLine Section ========== -->
+    <section class="safeline-section">
+        <h2>SafeLine - Mbështetje Praktike</h2>
+        <div class="safeline-grid">
+            <div class="safeline-box">
+                <img src="icons/hacked.png" alt="Llogaria e Hakuar">
+                <h3>Llogaria e Hakuar?</h3>
+                <p>Mëso hapat për të siguruar llogarinë dhe për të mbrojtur të dhënat tua.</p>
+            </div>
+            <div class="safeline-box">
+                <img src="icons/threat.png" alt="Kërcënimet Online">
+                <h3>Kërcënime Online?</h3>
+                <p>Si të reagosh në mënyrë të sigurt dhe si të raportosh kërcënimet pa u ekspozuar.</p>
+            </div>
+            <div class="safeline-box">
+                <img src="icons/photos.png" alt="Privatësia e Fotove">
+                <h3>Privatësia e Fotove</h3>
+                <p>Hapat që duhet të marrësh nëse fotot tua ndahen pa leje.</p>
+            </div>
+            <div class="safeline-box">
+                <img src="icons/police.png" alt="Kontakti me Policinë">
+                <h3>Kontakti me Policinë</h3>
+                <p>Këshilla praktike mbi çfarë të marrësh me vete dhe të drejtat tua.</p>
+            </div>
         </div>
-        <div class="timeline-step">
-            <span class="step-number">2</span>
-            <p>Secure your profile and privacy settings</p>
+    </section>
+
+    <!-- ========== Raporto Pa Frikë Section ========== -->
+    <section class="report-section">
+        <h2>Raporto Pa Frikë</h2>
+        <div class="report-timeline">
+            <div class="timeline-step">
+                <span class="step-number">1</span>
+                <p>Mblidh prova (screenshot, mesazhe, linke)</p>
+            </div>
+            <div class="timeline-step">
+                <span class="step-number">2</span>
+                <p>Siguro profilin dhe cilësimet e privatësisë</p>
+            </div>
+            <div class="timeline-step">
+                <span class="step-number">3</span>
+                <p>Raporto brenda platformës (Instagram, TikTok, WhatsApp)</p>
+            </div>
+            <div class="timeline-step">
+                <span class="step-number">4</span>
+                <p>Raporto në polici nëse është e nevojshme</p>
+            </div>
+            <div class="timeline-step">
+                <span class="step-number">5</span>
+                <p>Merr mbështetje psikologjike dhe ligjore</p>
+            </div>
         </div>
-        <div class="timeline-step">
-            <span class="step-number">3</span>
-            <p>Report within platform (Instagram, TikTok, WhatsApp)</p>
-        </div>
-        <div class="timeline-step">
-            <span class="step-number">4</span>
-            <p>Report to police if necessary</p>
-        </div>
-        <div class="timeline-step">
-            <span class="step-number">5</span>
-            <p>Receive psychological and legal support</p>
-        </div>
-    </div>
-</section>
+    </section>
+
+    <footer style="text-align:center; padding:20px; background:#fff0f5; color:#ff4d6d;">
+        © SafeLine — Demo për siguri digjitale (Kosovë)
+    </footer>
+
+</body>
 
 
     <!-- ========== JavaScript ========== -->
-    <script>
-        // Quick Exit Button
-        const quickExit = document.getElementById('quickExit');
-        if (quickExit) {
-            quickExit.addEventListener('click', () => {
-                window.location.href = "https://www.google.com";
-            });
-        }
+ <script>
+    // Quick Exit Button
+    const quickExit = document.getElementById('quickExit');
+    if (quickExit) {
+        quickExit.addEventListener('click', () => {
+            window.location.href = "https://www.google.com";
+        });
+    }
 
-        // Hero Slider
-        let slides = document.querySelectorAll('.slide');
-        let currentSlide = 0;
-        const totalSlides = slides.length;
+   // Hero Slider
+const slides = document.querySelectorAll('.slide');
+let currentSlide = 0;
+const totalSlides = slides.length;
 
-        const nextBtn = document.querySelector('.next');
-        const prevBtn = document.querySelector('.prev');
+const nextBtn = document.querySelector('.next');
+const prevBtn = document.querySelector('.prev');
 
-        if (nextBtn) nextBtn.addEventListener('click', () => changeSlide(1));
-        if (prevBtn) prevBtn.addEventListener('click', () => changeSlide(-1));
+function changeSlide(direction) {
+    slides[currentSlide].classList.remove('active');
+    currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+    slides[currentSlide].classList.add('active');
+}
 
-        function changeSlide(direction) {
-            slides[currentSlide].classList.remove('active');
-            currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
-            slides[currentSlide].classList.add('active');
-        }
+// Butonat
+if (nextBtn) nextBtn.addEventListener('click', () => {
+    changeSlide(1);
+    resetAutoSlide();
+});
+if (prevBtn) prevBtn.addEventListener('click', () => {
+    changeSlide(-1);
+    resetAutoSlide();
+});
 
-        // Auto Slide every 5 seconds
-        setInterval(() => {
+// Auto slide çdo 2 sekonda
+let slideInterval = setInterval(() => {
+    changeSlide(1);
+}, 2000);
+
+function resetAutoSlide() {
+    clearInterval(slideInterval);
+    slideInterval = setInterval(() => {
+        changeSlide(1);
+    }, 2000);
+}
+
+    // Butonat
+    if (nextBtn) nextBtn.addEventListener('click', () => {
+        changeSlide(1);
+        resetAutoSlide();
+    });
+    if (prevBtn) prevBtn.addEventListener('click', () => {
+        changeSlide(-1);
+        resetAutoSlide();
+    });
+
+ 
+    // Rifreskon intervalin kur klikohet butoni
+    function resetAutoSlide() {
+        clearInterval(slideInterval);
+        slideInterval = setInterval(() => {
             changeSlide(1);
-        }, 5000);
+        }, 2000); // <-- gjithashtu 2000ms
+    }
 
-        // Dropdown Click Toggle
-        const dropdown = document.querySelector('.dropdown');
-        if (dropdown) {
-            dropdown.addEventListener('click', function(e) {
-                e.preventDefault();
-                this.classList.toggle('active');
-            });
+    // Dropdown Click Toggle (nëse ke dropdown në navbar)
+    const dropdown = document.querySelector('.dropdown');
+    if (dropdown) {
+        dropdown.addEventListener('click', function(e) {
+            e.preventDefault();
+            this.classList.toggle('active');
+        });
 
-            window.addEventListener('click', function(e) {
-                if (!dropdown.contains(e.target)) {
-                    dropdown.classList.remove('active');
-                }
-            });
-        }
+        window.addEventListener('click', function(e) {
+            if (!dropdown.contains(e.target)) {
+                dropdown.classList.remove('active');
+            }
+        });
+    }
+</script>
 
-    </script>
+
 </body>
 </html>

@@ -33,18 +33,21 @@ setInterval(() => {
     changeSlide(1);
 }, 5000);
 
-// ========== Dropdown Click Toggle ==========
+// Dropdown toggle vetëm tek butoni
 const dropdown = document.querySelector('.dropdown');
 if (dropdown) {
-    dropdown.addEventListener('click', function(e) {
-        e.preventDefault();
-        this.classList.toggle('active');
+    const btn = dropdown.querySelector('.dropbtn');
+    btn.addEventListener('click', function(e) {
+        e.stopPropagation(); // ndalon klikimin të arrij tek window
+        dropdown.classList.toggle('active');
     });
 
-    // Close dropdown when clicking outside
+    // Mbyll dropdown kur klikoni jashtë
     window.addEventListener('click', function(e) {
         if (!dropdown.contains(e.target)) {
             dropdown.classList.remove('active');
         }
     });
 }
+
+
