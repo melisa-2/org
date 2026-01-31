@@ -4,317 +4,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SafeLine - Digital Safety Platform</title>
+    <!-- Link to consolidated CSS -->
     <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        /* ========== General Styles ========== */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Poppins', sans-serif;
-        }
-        body {
-            background-color: #fffaf6;
-            color: #333;
-        }
-        a {
-            text-decoration: none;
-        }
-
-        /* ========== Navbar ========== */
-        .navbar {
-            position: sticky;
-            top: 0;
-            left: 0;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 50px;
-            background-color: #fff0f5;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            z-index: 1000;
-            border-bottom-left-radius: 15px;
-            border-bottom-right-radius: 15px;
-        }
-
-        .navbar .logo {
-            font-weight: 700;
-            font-size: 28px;
-            color: #ff4d6d;
-        }
-
-        .nav-links {
-            list-style: none;
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-        .nav-links li:first-child {
-            margin-right: 10px; /* zvogëlo hapësirën midis Home dhe Pages */
-        }
-        .nav-links li a {
-            color: #ff4d6d;
-            font-weight: 500;
-            font-size: 16px;
-            padding: 6px 10px;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-        }
-        .nav-links li a:hover {
-            background-color: #ffd6e0;
-            color: #ff1a3c;
-        }
-
-        /* Dropdown */
-        .dropdown {
-            position: relative;
-        }
-        .dropdown-menu {
-            display: none;
-            position: absolute;
-            top: 35px;
-            left: 0;
-            background-color: #fff0f5;
-            border-radius: 12px;
-            padding: 10px 0;
-            min-width: 180px;
-            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-            z-index: 1000;
-        }
-        .dropdown-menu li a {
-            display: block;
-            padding: 8px 20px;
-            color: #ff4d6d;
-            font-weight: 500;
-        }
-        .dropdown-menu li a:hover {
-            background-color: #ff9f80;
-            color: #fff;
-            border-radius: 8px;
-        }
-        .dropdown.active .dropdown-menu {
-            display: block;
-        }
-
-        /* Quick Exit Button */
-        #quickExit {
-            background-color: #ff9f80;
-            border: none;
-            padding: 5px 10px;
-            border-radius: 8px;
-            cursor: pointer;
-            color: #fff;
-            font-weight: 600;
-            font-size: 14px;
-            transition: all 0.3s ease;
-            margin-left: 20px;
-        }
-        #quickExit:hover {
-            background-color: #ff7f50;
-            transform: scale(1.05);
-        }
-
-        /* ========== Hero Slider ========== */
-        .hero-slider {
-            position: relative;
-            overflow: hidden;
-            height: 400px;
-            margin: 30px 0;
-        }
-       .slide {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-    opacity: 0;
-    transform: scale(1.05); /* fillon pak e zmadhur */
-    transition: opacity 1s ease, transform 1s ease; /* fade + zoom */
-}
-
-.slide.active {
-    opacity: 1;
-    transform: scale(1); /* kthehet në madhësinë normale */
-}
-
-        .slide h2 {
-            position: absolute;
-            bottom: 40px;
-            left: 50%;
-            transform: translateX(-50%);
-            color: #fff;
-            background-color: rgba(255, 77, 109, 0.7);
-            padding: 10px 20px;
-            border-radius: 12px;
-        }
-        .slider-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(255,159,128,0.8);
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-            border-radius: 50%;
-            font-size: 20px;
-            color: #fff;
-        }
-        .prev { left: 20px; }
-        .next { right: 20px; }
-
-        /* ========== Interactive Boxes ========== */
-        .interactive-boxes {
-            padding: 50px 20px;
-            text-align: center;
-        }
-        .interactive-boxes h2 {
-            font-size: 32px;
-            margin-bottom: 40px;
-            color: #ff4d6d;
-        }
-        .boxes-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 30px;
-            justify-items: center;
-        }
-        .box {
-            background-color: #fff0f5;
-            padding: 25px;
-            border-radius: 20px;
-            transition: transform 0.3s ease, background-color 0.3s ease;
-            cursor: pointer;
-            max-width: 300px;
-            text-align: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-        }
-        .box:hover {
-            transform: scale(1.08);
-            background-color: #ffd6e0;
-        }
-        .box img {
-            width: 60px;
-            margin-bottom: 15px;
-        }
-        .box h3 {
-            color: #ff4d6d;
-            margin-bottom: 10px;
-            font-size: 20px;
-        }
-        .box p {
-            font-size: 15px;
-            color: #333;
-        }
-        .see-more-btn {
-            display: inline-block;
-            margin-top: 40px;
-            padding: 14px 30px;
-            background-color: #ff9f80;
-            color: #fff;
-            font-weight: 600;
-            border-radius: 12px;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
-        .see-more-btn:hover {
-            background-color: #ff7f50;
-            transform: scale(1.05);
-        }
-
-        /* ========== Responsive ========== */
-        @media screen and (max-width: 768px) {
-            .navbar {
-                flex-direction: column;
-                align-items: flex-start;
-                padding: 15px 20px;
-            }
-            .nav-links {
-                flex-direction: column;
-                width: 100%;
-                gap: 10px;
-                margin-top: 10px;
-            }
-            .dropdown-menu {
-                position: relative;
-                top: 0;
-                left: 0;
-                width: 100%;
-                border-radius: 10px;
-                padding: 10px 0;
-            }
-            #quickExit {
-                width: 100%;
-                text-align: center;
-                padding: 10px 0;
-                margin-left: 0;
-            }
-            .boxes-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-            .see-more-btn {
-                width: 80%;
-                padding: 12px 0;
-            }
-        }
-    </style>
 </head>
 <body>
 
-    <!-- ========== Navbar ========== -->
+    <!-- ================= Navbar ================= -->
     <nav class="navbar">
         <div class="logo">SafeLine</div>
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="details.html">Detaje</a></li>
-            <li><a href="safeline.html">SafeLine</a></li>
+        
             <li><a href="report.html">Raporto</a></li>
             <li><a href="contact.html">Kontakti</a></li>
-            <li>
-                <button id="quickExit" title="Dalje e Shpejtë!">Dalje</button>
-            </li>
+            <li><button id="quickExit" title="Dalje e Shpejtë!">Dalje</button></li>
         </ul>
     </nav>
 
-    <!-- ========== Hero Slider ========== -->
+    <!-- ================= Hero Slider ================= -->
     <section class="hero-slider">
-        <div class="slide active" style="background-image: url('img/h5.jpeg');">
+        <div class="slide active" style="background-image: url('img1/IMG_3382.JPG');">
             <h2>Qëndro i Sigurt Online</h2>
         </div>
-        <div class="slide" style="background-image: url('img/h10.jpeg');">
+        <div class="slide" style="background-image: url('img1/IMG_3375.JPG');">
             <h2>Mëso Si të Mbrosh Veten</h2>
         </div>
-        <div class="slide" style="background-image: url('img/h11.jpeg');">
+        <div class="slide" style="background-image: url('img1/IMG_3377.JPG');">
+        
             <h2>Siguri Digjitale për të Gjithë</h2>
         </div>
         <button class="slider-btn prev">&#10094;</button>
         <button class="slider-btn next">&#10095;</button>
     </section>
 
-    <!-- ========== Interactive Boxes ========== -->
+    <!-- ================= Interactive Boxes ================= -->
     <section class="interactive-boxes">
         <h2>Temat që Duhet të Dini</h2>
         <div class="boxes-grid">
             <div class="box">
-                <img src="img/h10.jpeg" alt="Ikona e Ngacmimit Online">
+                <img src="img/h13.jpeg" alt="Ikona e Ngacmimit Online">
                 <h3>Ngacmimi Online</h3>
                 <p>Mëso si ta identifikosh dhe si të reagosh në mënyrë të sigurt ndaj ngacmimit online.</p>
             </div>
             <div class="box">
-                <img src="icons/stalking.png" alt="Ikona e Ngacmimit Digjital">
+                <img src="img/h13.jpeg" alt="Ikona e Ngacmimit Digjital">
                 <h3>Ngacmimi Digjital</h3>
                 <p>Kupto se çfarë është ngacmimi digjital dhe si të mbrosh veten.</p>
             </div>
             <div class="box">
-                <img src="icons/photos.png" alt="Ikona e Ndashjes së Fotove">
+                <img src="img/h13.jpeg" alt="Ikona e Ndashjes së Fotove">
                 <h3>Ndashja e Fotove pa Leje</h3>
                 <p>Hapat që duhet të marrësh nëse dikush ndan fotot tua pa leje.</p>
             </div>
             <div class="box">
-                <img src="icons/safety.png" alt="Ikona e Sigurisë">
+                <img src="img/h13.jpeg" alt="Ikona e Sigurisë">
                 <h3>Masat e Sigurisë</h3>
                 <p>Këshilla të shpejta për të reaguar në mënyrë të sigurt në situata online të rrezikshme.</p>
             </div>
@@ -322,34 +68,34 @@
         <a href="details.html" class="see-more-btn">Shiko më shumë</a>
     </section>
 
-    <!-- ========== SafeLine Section ========== -->
+    <!-- ================= SafeLine Section ================= -->
     <section class="safeline-section">
         <h2>SafeLine - Mbështetje Praktike</h2>
         <div class="safeline-grid">
             <div class="safeline-box">
-                <img src="icons/hacked.png" alt="Llogaria e Hakuar">
+                <img src="img/image.png" alt="Llogaria e Hakuar">
                 <h3>Llogaria e Hakuar?</h3>
                 <p>Mëso hapat për të siguruar llogarinë dhe për të mbrojtur të dhënat tua.</p>
             </div>
             <div class="safeline-box">
-                <img src="icons/threat.png" alt="Kërcënimet Online">
+                <img src="img/th.jpg" alt="Kërcënimet Online">
                 <h3>Kërcënime Online?</h3>
                 <p>Si të reagosh në mënyrë të sigurt dhe si të raportosh kërcënimet pa u ekspozuar.</p>
             </div>
             <div class="safeline-box">
-                <img src="icons/photos.png" alt="Privatësia e Fotove">
+                <img src="img1/image.png" alt="Privatësia e Fotove">
                 <h3>Privatësia e Fotove</h3>
                 <p>Hapat që duhet të marrësh nëse fotot tua ndahen pa leje.</p>
             </div>
             <div class="safeline-box">
-                <img src="icons/police.png" alt="Kontakti me Policinë">
+                <img src="img/plc.jpg" alt="Kontakti me Policinë">
                 <h3>Kontakti me Policinë</h3>
                 <p>Këshilla praktike mbi çfarë të marrësh me vete dhe të drejtat tua.</p>
             </div>
         </div>
     </section>
 
-    <!-- ========== Raporto Pa Frikë Section ========== -->
+    <!-- ================= Report Section ================= -->
     <section class="report-section">
         <h2>Raporto Pa Frikë</h2>
         <div class="report-timeline">
@@ -376,94 +122,57 @@
         </div>
     </section>
 
-    <footer style="text-align:center; padding:20px; background:#fff0f5; color:#ff4d6d;">
+    <!-- ================= Footer ================= -->
+    <footer>
         © SafeLine — Demo për siguri digjitale (Kosovë)
     </footer>
 
-</body>
+    <!-- ================= JavaScript ================= -->
+    <script>
+        // Quick Exit Button
+        const quickExit = document.getElementById('quickExit');
+        if (quickExit) {
+            quickExit.addEventListener('click', () => {
+                window.location.href = "https://www.google.com";
+            });
+        }
 
+        // Hero Slider
+        const slides = document.querySelectorAll('.slide');
+        let currentSlide = 0;
+        const totalSlides = slides.length;
 
-    <!-- ========== JavaScript ========== -->
- <script>
-    // Quick Exit Button
-    const quickExit = document.getElementById('quickExit');
-    if (quickExit) {
-        quickExit.addEventListener('click', () => {
-            window.location.href = "https://www.google.com";
-        });
-    }
+        const nextBtn = document.querySelector('.next');
+        const prevBtn = document.querySelector('.prev');
 
-   // Hero Slider
-const slides = document.querySelectorAll('.slide');
-let currentSlide = 0;
-const totalSlides = slides.length;
+        function changeSlide(direction) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+            slides[currentSlide].classList.add('active');
+        }
 
-const nextBtn = document.querySelector('.next');
-const prevBtn = document.querySelector('.prev');
-
-function changeSlide(direction) {
-    slides[currentSlide].classList.remove('active');
-    currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
-    slides[currentSlide].classList.add('active');
-}
-
-// Butonat
-if (nextBtn) nextBtn.addEventListener('click', () => {
-    changeSlide(1);
-    resetAutoSlide();
-});
-if (prevBtn) prevBtn.addEventListener('click', () => {
-    changeSlide(-1);
-    resetAutoSlide();
-});
-
-// Auto slide çdo 2 sekonda
-let slideInterval = setInterval(() => {
-    changeSlide(1);
-}, 2000);
-
-function resetAutoSlide() {
-    clearInterval(slideInterval);
-    slideInterval = setInterval(() => {
-        changeSlide(1);
-    }, 2000);
-}
-
-    // Butonat
-    if (nextBtn) nextBtn.addEventListener('click', () => {
-        changeSlide(1);
-        resetAutoSlide();
-    });
-    if (prevBtn) prevBtn.addEventListener('click', () => {
-        changeSlide(-1);
-        resetAutoSlide();
-    });
-
- 
-    // Rifreskon intervalin kur klikohet butoni
-    function resetAutoSlide() {
-        clearInterval(slideInterval);
-        slideInterval = setInterval(() => {
+        // Slider Buttons
+        if (nextBtn) nextBtn.addEventListener('click', () => {
             changeSlide(1);
-        }, 2000); // <-- gjithashtu 2000ms
-    }
-
-    // Dropdown Click Toggle (nëse ke dropdown në navbar)
-    const dropdown = document.querySelector('.dropdown');
-    if (dropdown) {
-        dropdown.addEventListener('click', function(e) {
-            e.preventDefault();
-            this.classList.toggle('active');
+            resetAutoSlide();
+        });
+        if (prevBtn) prevBtn.addEventListener('click', () => {
+            changeSlide(-1);
+            resetAutoSlide();
         });
 
-        window.addEventListener('click', function(e) {
-            if (!dropdown.contains(e.target)) {
-                dropdown.classList.remove('active');
-            }
-        });
-    }
-</script>
+        // Auto slide every 2 seconds
+        let slideInterval = setInterval(() => {
+            changeSlide(1);
+        }, 2000);
 
+        function resetAutoSlide() {
+            clearInterval(slideInterval);
+            slideInterval = setInterval(() => {
+                changeSlide(1);
+            }, 2000);
+        }
+    </script>
 
 </body>
 </html>

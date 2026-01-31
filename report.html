@@ -6,104 +6,72 @@
     <title>Report & Help — SafeLine</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <style>
-        body {
-            background-color: #fffaf6;
-            font-family: 'Poppins', sans-serif;
-            color: #333;
-            margin: 0;
-        }
-        a { text-decoration: none; color: #ff4d6d; }
-        a:hover { color: #ff1a3c; }
-
-        /* Navbar */
-        .navbar {
-            position: sticky;
-            top: 0;
-            left: 0;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 50px;
-            background-color: #fff0f5;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            border-bottom-left-radius: 15px;
-            border-bottom-right-radius: 15px;
-            z-index: 1000;
-        }
-        .navbar .logo { font-weight: 700; font-size: 28px; color: #ff4d6d; }
-        .nav-links { list-style: none; display: flex; align-items: center; gap: 20px; }
-        .nav-links li { position: relative; }
-        .nav-links li a { padding: 6px 10px; border-radius: 8px; font-weight: 500; transition: all 0.3s ease; }
-        .nav-links li a:hover { background-color: #ffd6e0; color: #ff1a3c; }
-        #quickExit {
-            background-color: #ff9f80; border: none; padding: 5px 10px;
-            border-radius: 8px; cursor: pointer; color: #fff; font-weight: 600;
-            transition: all 0.3s ease;
-        }
-        #quickExit:hover { background-color: #ff7f50; transform: scale(1.05); }
-
-        /* Timeline Section */
-        .timeline-section { padding: 50px 20px; text-align: center; }
-        .timeline-section h2 { font-size: 32px; margin-bottom: 40px; color: #ff4d6d; }
-        .timeline { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; justify-items: center; }
-        .timeline .step {
-            background-color: #fff0f5; padding: 20px; border-radius: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease, background-color 0.3s ease; font-weight: 500;
-        }
-        .timeline .step.active { background-color: #ffd6e0; color: #fff; transform: scale(1.05); }
-
-        /* Contact Boxes */
-        .contact-section { padding: 50px 20px; text-align: center; }
-        .contact-section h2 { font-size: 28px; margin-bottom: 30px; color: #ff4d6d; }
-        .contact-section .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; justify-items: center; }
-        .contact-box { background-color: #fff0f5; padding: 20px; border-radius: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease, background-color 0.3s ease; cursor: pointer; }
-        .contact-box:hover { transform: scale(1.05); background-color: #ffd6e0; color: #fff; }
-
-        /* Anonymous Form */
-        .mt { margin-top: 40px; display: flex; flex-direction: column; align-items: center; gap: 10px; }
-        .mt textarea { width: 80%; padding: 10px; border-radius: 12px; border: 1px solid #ccc; resize: vertical; }
-        .mt select { padding: 8px 12px; border-radius: 8px; border: 1px solid #ccc; }
-        .mt button.btn { padding: 10px 20px; border: none; border-radius: 12px; background-color: #ff9f80; color: #fff; font-weight: 600; cursor: pointer; transition: all 0.3s ease; }
-        .mt button.btn:hover { background-color: #ff7f50; transform: scale(1.05); }
-        .mt p.muted { font-size: 12px; color: #666; }
-
-        @media screen and (max-width: 768px) {
-            .navbar { flex-direction: column; align-items: flex-start; padding: 15px 20px; }
-            .nav-links { flex-direction: column; width: 100%; gap: 10px; margin-top: 10px; }
-            .timeline, .contact-section .grid { grid-template-columns: 1fr; }
-            .mt textarea, .mt select, .mt button { width: 80%; }
-        }
-    </style>
+   
 </head>
 <body>
 
-    <!-- Navbar -->
+     <!-- ========== Navbar ========== -->
     <nav class="navbar">
         <div class="logo">SafeLine</div>
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
-            <li><a href="details.html">Details</a></li>
-            <li><a href="safeline.html">SafeLine</a></li>
-            <li><a href="report.html">Report</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><button id="quickExit">⏏️ Exit</button></li>
+            <li><a href="details.html">Detaje</a></li>
+            
+            <li><a href="report.html">Raporto</a></li>
+            <li><a href="contact.html">Kontakti</a></li>
+            <li>
+                <button id="quickExit" title="Dalje e Shpejtë!">Dalje</button>
+            </li>
         </ul>
     </nav>
+  
 
-    <!-- Timeline Section -->
-    <section class="timeline-section">
-        <h2>Procesi i Raportimit (5 Hapa)</h2>
-        <div class="timeline">
-            <div class="step active">1. Mbledh provat (screenshot, linke)</div>
-            <div class="step">2. Siguro profilin (blloko, 2FA)</div>
-            <div class="step">3. Raporto në platformë (Instagram/TikTok)</div>
-            <div class="step">4. Raporto në Polici (192 ose online)</div>
-            <div class="step">5. Merr mbështetje psikologjike</div>
+   <!-- ================= New Quiz Section ================= -->
+<section class="quiz-section">
+    <h2>Testo njohuritë e tua për sigurinë online</h2>
+    <div id="quiz-container">
+        <p id="quiz-question">Pyetja do të shfaqet këtu...</p>
+        <ul id="quiz-options"></ul>
+        <button id="next-btn" class="quiz-btn">Tjetra</button>
+        <p id="quiz-score"></p>
+    </div>
+</section>
+ <!-- Timeline Section -->
+<section class="timeline-section">
+    <h2>Procesi i Raportimit (5 Hapa)</h2>
+
+    <div class="details-grid">
+        <div class="detail-box">
+            <img src="img/ss.jpg" alt="Mbledhja e provave">
+            <h3>1. Mbledh provat</h3>
+            <p>Screenshot, linke, mesazhe si dëshmi.</p>
         </div>
-    </section>
+
+        <div class="detail-box">
+            <img src="img/sg.jpg" alt="Sigurimi i profilit">
+            <h3>2. Siguro profilin</h3>
+            <p>Blloko personin dhe aktivizo 2FA.</p>
+        </div>
+
+        <div class="detail-box">
+            <img src="img/tt.jpg" alt="Raportimi në platformë">
+            <h3>3. Raporto në platformë</h3>
+            <p>Instagram, TikTok, Facebook, etj.</p>
+        </div>
+
+        <div class="detail-box">
+            <img src="img/inf.jpg" alt="Raportimi në Polici">
+            <h3>4. Raporto në Polici</h3>
+            <p>Thirr 192 ose raporto online.</p>
+        </div>
+
+        <div class="detail-box">
+            <img src="img/psk.jpg" alt="Mbështetje psikologjike">
+            <h3>5. Merr mbështetje</h3>
+            <p>Flit me prindër, mësues ose psikolog.</p>
+        </div>
+    </div>
+</section>
 
     <!-- Contact Section -->
     <section class="contact-section">
@@ -113,29 +81,104 @@
             <div class="contact-box"><strong>Rrjeti i Grave: 048 105 800</strong><br>Mbështetje për viktima.</div>
         </div>
 
-        <div class="mt">
-            <h3>Formular Anonim</h3>
-            <textarea placeholder="Përshkruaj problemin (anonim)..."></textarea>
-            <select>
-                <option>Jo urgjent</option>
-                <option>Urgjent</option>
-            </select>
-            <button class="btn">Dërgo Anonimisht</button>
-            <p class="muted">Ruhet lokalisht në browser.</p>
-        </div>
+      
     </section>
 
     <footer style="text-align:center; padding:20px; background:#fff0f5; color:#ff4d6d;">
         © SafeLine — Demo për siguri digjitale (Kosovë)
     </footer>
 
-    <script>
-        const quickExit = document.getElementById('quickExit');
-        if(quickExit){
-            quickExit.addEventListener('click', () => {
-                window.location.href = "https://www.google.com";
-            });
-        }
-    </script>
+ <script>
+    // Quick Exit
+    const quickExit = document.getElementById('quickExit');
+    if(quickExit){
+        quickExit.addEventListener('click', () => {
+            window.location.href = "https://www.google.com";
+        });
+    }
+
+ 
+const quizData = [
+    {
+        question: "Çfarë duhet të bësh nëse merr mesazhe të dyshimta?",
+        options: [
+            "T’i hap të gjitha menjëherë",
+            "T’i fshij pa hapur",
+            "T’i ndash me miqtë",
+            "T’i ruaj për më vonë"
+        ],
+        answer: 3
+    },
+    {
+        question: "Si të mbroni privatësinë e fotove tuaja?",
+        options: [
+            "T’i postosh publikisht",
+            "T’i ruash vetëm në pajisje personale",
+            "T’i dërgosh të gjithëve",
+            "T’i fshish menjëherë"
+        ],
+        answer: 1
+    },
+    {
+        question: "Cila është një masë e mirë sigurie për llogaritë online?",
+        options: [
+            "Përdorimi i fjalëkalimeve të dobëta",
+            "Përdorimi i të njëjtit fjalëkalim gjithçka",
+            "Aktivizo 2FA (Verifikim në dy hapa)",
+            "Shkruaj fjalëkalimin në Word"
+        ],
+        answer: 2
+    }
+];
+
+let currentQuestion = 0;
+let score = 0;
+
+const questionEl = document.getElementById('quiz-question');
+const optionsEl = document.getElementById('quiz-options');
+const nextBtn = document.getElementById('next-btn');
+const scoreEl = document.getElementById('quiz-score');
+
+function loadQuestion() {
+    const currentQuiz = quizData[currentQuestion];
+    questionEl.textContent = currentQuiz.question;
+    optionsEl.innerHTML = '';
+    currentQuiz.options.forEach((option, index) => {
+        const li = document.createElement('li');
+        li.textContent = option;
+        li.classList.add('quiz-btn');
+        li.addEventListener('click', () => selectOption(index));
+        optionsEl.appendChild(li);
+    });
+}
+
+function selectOption(selectedIndex) {
+    const correct = quizData[currentQuestion].answer;
+    if (selectedIndex === correct) {
+        score++;
+        scoreEl.textContent = "Përgjigje e saktë! Piket: " + score;
+        scoreEl.style.color = "green";
+    } else {
+        scoreEl.textContent = "Gabim! Piket: " + score;
+        scoreEl.style.color = "red";
+    }
+    Array.from(optionsEl.children).forEach(li => li.style.pointerEvents = 'none');
+}
+
+nextBtn.addEventListener('click', () => {
+    currentQuestion++;
+    if (currentQuestion < quizData.length) {
+        scoreEl.textContent = '';
+        loadQuestion();
+    } else {
+        questionEl.textContent = "Quiz përfundoi! Piket totale: " + score + "/" + quizData.length;
+        optionsEl.innerHTML = '';
+        nextBtn.style.display = 'none';
+    }
+});
+
+loadQuestion();
+
+</script>
 </body>
 </html>

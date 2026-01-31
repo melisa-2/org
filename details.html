@@ -1,126 +1,105 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sq">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Details — SafeLine</title>
+    <title>SafeLine — Mbështetje & Detaje</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            background-color: #fffaf6;
-            font-family: 'Poppins', sans-serif;
-            color: #333;
-            margin: 0;
-        }
-        a { text-decoration: none; color: #ff4d6d; }
-        a:hover { color: #ff1a3c; }
-
-        /* Navbar (i njëjtë si index) */
-        .navbar {
-            position: sticky;
-            top: 0;
-            left: 0;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 50px;
-            background-color: #fff0f5;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            border-bottom-left-radius: 15px;
-            border-bottom-right-radius: 15px;
-            z-index: 1000;
-        }
-        .navbar .logo { font-weight: 700; font-size: 28px; color: #ff4d6d; }
-        .nav-links { list-style: none; display: flex; align-items: center; gap: 20px; }
-        .nav-links li { position: relative; }
-        .nav-links li a { padding: 6px 10px; border-radius: 8px; font-weight: 500; transition: all 0.3s ease; }
-        .nav-links li a:hover { background-color: #ffd6e0; color: #ff1a3c; }
-        #quickExit {
-            background-color: #ff9f80; border: none; padding: 5px 10px;
-            border-radius: 8px; cursor: pointer; color: #fff; font-weight: 600;
-            transition: all 0.3s ease;
-        }
-        #quickExit:hover { background-color: #ff7f50; transform: scale(1.05); }
-
-        /* Sections */
-        main { padding: 50px 20px; max-width: 1200px; margin: 0 auto; }
-        h1, h2 { color: #ff4d6d; }
-        .lead { font-size: 18px; margin-bottom: 40px; }
-
-        /* Boxes for detailed info */
-        .details-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
-        .detail-box {
-            background-color: #fff0f5; padding: 25px; border-radius: 20px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05); transition: transform 0.3s ease, background-color 0.3s ease;
-            cursor: pointer;
-        }
-        .detail-box:hover { transform: scale(1.05); background-color: #ffd6e0; }
-        .detail-box img { width: 60px; margin-bottom: 15px; }
-        .detail-box h3 { margin-bottom: 10px; font-size: 20px; }
-        .detail-box p { font-size: 15px; }
-
-        /* Responsive */
-        @media screen and (max-width: 768px) {
-            .navbar { flex-direction: column; align-items: flex-start; padding: 15px 20px; }
-            .nav-links { flex-direction: column; width: 100%; gap: 10px; margin-top: 10px; }
-            .details-grid { grid-template-columns: 1fr; gap: 20px; }
-        }
-    </style>
 </head>
 <body>
 
-    <!-- Navbar -->
+  <!-- ================= Navbar ================= -->
     <nav class="navbar">
         <div class="logo">SafeLine</div>
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
-            <li><a href="details.html">Details</a></li>
-            <li><a href="safeline.html">SafeLine</a></li>
-            <li><a href="report.html">Report</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><button id="quickExit">Exit</button></li>
+            <li><a href="details.html">Detaje</a></li>
+        
+            <li><a href="report.html">Raporto</a></li>
+            <li><a href="contact.html">Kontakti</a></li>
+            <li><button id="quickExit" title="Dalje e Shpejtë!">Dalje</button></li>
         </ul>
     </nav>
 
-    <main>
-        <section class="hero">
-            <h1>Details — Learn & Act</h1>
-            <p class="lead">Shembuj të anonimizuar të dhunës digjitale dhe udhëzime hap pas hapi për sigurinë tuaj.</p>
-        </section>
+   <!-- Hero Section -->
+<section class="hero">
+    <h1>SafeLine — Mbështetje Praktike & Kërcënime Digjitale</h1>
+    <p class="lead">Mëso si të mbrosh veten online dhe si të njohësh kërcënimet digjitale më të zakonshme.</p>
+</section>
 
-        <section class="details-section">
-            <h2>Common Digital Threats</h2>
-            <div class="details-grid">
-                <div class="detail-box">
-                    <img src="icons/harassment.png" alt="Online Harassment">
-                    <h3>Online Harassment</h3>
-                    <p>Si ta identifikoni dhe si të reagoni në mënyrë të sigurt ndaj ngacmimeve online.</p>
-                </div>
-                <div class="detail-box">
-                    <img src="icons/stalking.png" alt="Digital Stalking">
-                    <h3>Digital Stalking</h3>
-                    <p>Si duket stalkimi digjital dhe mënyrat për t'u mbrojtur.</p>
-                </div>
-                <div class="detail-box">
-                    <img src="icons/photos.png" alt="Photo Sharing">
-                    <h3>Sharing Photos Without Consent</h3>
-                    <p>Çfarë të bëni nëse dikush shpërndan foto pa leje.</p>
-                </div>
-                <div class="detail-box">
-                    <img src="icons/safety.png" alt="Safety Measures">
-                    <h3>Safety Measures</h3>
-                    <p>Udhëzime të shpejta për të reaguar në situata të rrezikshme online.</p>
-                </div>
-            </div>
-        </section>
-    </main>
+<!-- SafeLine Section -->
+<section class="safeline-section">
+    <h2>Mbështetje Praktike</h2>
+    <div class="safeline-grid">
+        <div class="safeline-box">
+            <img src="img/q.jpg" alt="Llogaria e Hakuar">
+            <h3>Llogaria e Hakuar?</h3>
+            <p>Mëso hap pas hapi si të siguroni llogarinë dhe të mbrosh të dhënat tua.</p>
+        </div>
+        <div class="safeline-box">
+            <img src="img/q.jpg" alt="Kërcënime Online">
+            <h3>Kërcënime Online?</h3>
+            <p>Si të reagosh në mënyrë të sigurt dhe të raportosh kërcënimet pa u ekspozuar.</p>
+        </div>
+        <div class="safeline-box">
+            <img src="img/q.jpg" alt="Privatësia e Fotove">
+            <h3>Privatësia e Fotove</h3>
+            <p>Hapat që duhet të marrësh nëse fotot tua ndahen pa leje.</p>
+        </div>
+        <div class="safeline-box">
+            <img src="img/q.jpg" alt="Kontakti me Policinë">
+            <h3>Kontakti me Policinë</h3>
+            <p>Këshilla praktike mbi çfarë të marrësh me vete dhe të drejtat tua.</p>
+        </div>
+    </div>
+</section>
 
-    <footer style="text-align:center; padding:20px; background:#fff0f5; color:#ff4d6d;">
-        © SafeLine — Demo për siguri digjitale (Kosovë)
-    </footer>
+<!-- Digital Threats Section -->
+<section class="details-section">
+    <h2>Kërcënimet Digjitale më të Zakonshme</h2>
 
+    <div class="details-grid">
+        <div class="detail-box">
+            <img src="img/h19.jpeg" alt="Ngacmimi Online">
+            <h3>Ngacmimi Online</h3>
+        </div>
+
+        <div class="detail-box">
+            <img src="img1/IMG_3380.JPG" alt="Stalkimi Digjital">
+            <h3>Stalkimi Digjital</h3>
+        </div>
+
+        <div class="detail-box">
+            <img src="img/h6.jpeg" alt="Ndashja e Fotove">
+            <h3>Ndashja e Fotove pa Leje</h3>
+        </div>
+
+        <div class="detail-box">
+            <img src="img/h15.jpeg" alt="Masat e Sigurisë">
+            <h3>Masat e Sigurisë</h3>
+        </div>
+
+        <!-- BOX I RI 5 -->
+        <div class="detail-box">
+            <img src="img/h23.jpeg" alt="Mashtrimi Online">
+            <h3>Mashtrimi Online (Phishing)</h3>
+        </div>
+
+        <!-- BOX I RI 6 -->
+        <div class="detail-box">
+            <img src="img/h12.jpeg" alt="Siguria e Fjalëkalimeve">
+            <h3>Siguria e Fjalëkalimeve</h3>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    © SafeLine — Demo për siguri digjitale (Kosovë)
+</footer>
+
+    <!-- ================= Scripts ================= -->
     <script>
         // Quick Exit
         const quickExit = document.getElementById('quickExit');
@@ -130,6 +109,5 @@
             });
         }
     </script>
-
 </body>
 </html>

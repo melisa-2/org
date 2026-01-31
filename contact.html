@@ -6,92 +6,28 @@
     <title>Contact — SafeLine</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <style>
-        body {
-            background-color: #fffaf6;
-            font-family: 'Poppins', sans-serif;
-            color: #333;
-            margin: 0;
-        }
-        a { text-decoration: none; color: #ff4d6d; }
-        a:hover { color: #ff1a3c; }
-
-        /* Navbar */
-        .navbar {
-            position: sticky;
-            top: 0;
-            left: 0;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 50px;
-            background-color: #fff0f5;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            border-bottom-left-radius: 15px;
-            border-bottom-right-radius: 15px;
-            z-index: 1000;
-        }
-        .navbar .logo { font-weight: 700; font-size: 28px; color: #ff4d6d; }
-        .nav-links { list-style: none; display: flex; align-items: center; gap: 20px; }
-        .nav-links li { position: relative; }
-        .nav-links li a { padding: 6px 10px; border-radius: 8px; font-weight: 500; transition: all 0.3s ease; }
-        .nav-links li a:hover { background-color: #ffd6e0; color: #ff1a3c; }
-        #quickExit {
-            background-color: #ff9f80; border: none; padding: 5px 10px;
-            border-radius: 8px; cursor: pointer; color: #fff; font-weight: 600;
-            transition: all 0.3s ease;
-        }
-        #quickExit:hover { background-color: #ff7f50; transform: scale(1.05); }
-
-        /* Contact Form Section */
-        .contact-section { padding: 50px 20px; max-width: 900px; margin: auto; }
-        .contact-section h2 { font-size: 32px; margin-bottom: 30px; color: #ff4d6d; text-align: center; }
-        .contact-form { display: flex; flex-direction: column; gap: 15px; }
-        .contact-form input, .contact-form textarea {
-            padding: 12px 15px;
-            border-radius: 12px;
-            border: 1px solid #ccc;
-            font-size: 16px;
-            resize: vertical;
-        }
-        .contact-form textarea { min-height: 120px; }
-        .contact-form button {
-            padding: 12px;
-            background-color: #ff9f80;
-            color: #fff;
-            font-weight: 600;
-            border: none;
-            border-radius: 12px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        .contact-form button:hover { background-color: #ff7f50; transform: scale(1.05); }
-
-        @media screen and (max-width: 768px) {
-            .navbar { flex-direction: column; align-items: flex-start; padding: 15px 20px; }
-            .nav-links { flex-direction: column; width: 100%; gap: 10px; margin-top: 10px; }
-        }
-    </style>
+ 
 </head>
 <body>
 
-    <!-- Navbar -->
+    <!-- ========== Navbar ========== -->
     <nav class="navbar">
         <div class="logo">SafeLine</div>
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
-            <li><a href="details.html">Details</a></li>
-            <li><a href="safeline.html">SafeLine</a></li>
-            <li><a href="report.html">Report</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><button id="quickExit">⏏️ Exit</button></li>
+            <li><a href="details.html">Detaje</a></li>
+           
+            <li><a href="report.html">Raporto</a></li>
+            <li><a href="contact.html">Kontakti</a></li>
+            <li>
+                <button id="quickExit" title="Dalje e Shpejtë!">Dalje</button>
+            </li>
         </ul>
     </nav>
 
     <!-- Contact Form Section -->
     <section class="contact-section">
-        <h2>Contact SafeLine</h2>
+        <h2>Na kontakto!</h2>
         <form class="contact-form">
             <input type="text" placeholder="Emri (opsional)">
             <input type="email" placeholder="Email (opsional)">
@@ -105,14 +41,25 @@
         © SafeLine — Demo për siguri digjitale (Kosovë)
     </footer>
 
-    <script>
-        // Quick Exit
-        const quickExit = document.getElementById('quickExit');
-        if(quickExit){
-            quickExit.addEventListener('click', () => {
-                window.location.href = "https://www.google.com";
-            });
-        }
-    </script>
+   <script>
+    // Quick Exit
+    const quickExit = document.getElementById('quickExit');
+    if (quickExit) {
+        quickExit.addEventListener('click', () => {
+            window.location.href = "https://www.google.com";
+        });
+    }
+
+    // Contact Form Alert
+    const contactForm = document.querySelector('.contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault(); // prevent page reload
+            alert("Faleminderit! Mesazhi juaj është dërguar."); // alert message
+            contactForm.reset(); // optional: clears the form
+        });
+    }
+</script>
+
 </body>
 </html>
